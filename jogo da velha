@@ -1,0 +1,201 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+#include <string.h>
+#include <math.h>
+#include <time.h>
+
+void t(char c2[9]){ 
+ system("clear");
+  printf("\t %c | %c | %c \n",c2[0],c2[1],c2[2]);
+  printf("\t --------- \n");
+  printf("\t %c | %c | %c \n",c2[3],c2[4],c2[5]);
+  printf("\t --------- \n");
+  printf("\t %c | %c | %c \n",c2[6],c2[7],c2[8]);
+
+}
+int main(){
+
+   char nome1[100000];
+   char nome2[100000];
+   int linha,coluna;
+   char c[9]={'1','2','3','4','5','6','7','8','9'};
+   char resultado;
+   int cj,i,j=1,v=0;
+   int j1=0,j2=0,e=0;
+   int op;
+  
+   do{
+     t(c);
+      printf("digite 1 para jogar com um amigo\n");
+      printf("digite 2 para jogar com o computador\n");
+      scanf("%i",&op);
+   }while(op<1 || op>2);
+
+    printf("digite o nome do(a) jogador(a) 1:\n");
+    scanf("%s",nome1);
+    
+    if(op==1){
+    printf("digite o nome do(a) jogador(a) 2:\n");
+    scanf("%s",nome2);
+
+    printf("\n\"%s e o 'X',%s e o 'O'\"\n\n",nome1,nome2);
+    printf("digite 1 para continuar\n");
+    scanf("%i",&j);
+    }
+    
+    if(op==2){
+    printf("\n\"%s e o 'X',computador e o 'O'\"\n\n",nome1);
+    printf("digite 1 para continuar\n");
+    scanf("%i",&j);
+    }
+
+   do{
+      cj=1;
+      for(i=0;i<=9;i++){
+       c[i]=' ';
+      }
+   do{   
+      t(c);
+      if(j==0){
+        printf("\njogada invalida,tente novamente\n");
+      }
+       printf("\ndigite a casa para marcar[1-9]\n");
+       if(v%2==0){
+         printf("jogador(a) %s:\n",nome1);
+         scanf("%i",&j);
+       }else{
+         if(op==1){
+         printf("jogador(a) %s:\n ",nome2);
+         scanf("%i",&j);
+         }else{
+           if(c[0]=='O' && c[1]=='O' && c[2]==' '){j=3;}
+          else if(c[3]=='O' && c[4]=='O' && c[5]==' '){j=6;}
+          else if(c[6]=='O' && c[7]=='O' && c[8]==' '){j=9;}
+          else if(c[0]=='O' && c[1]==' ' && c[2]=='O'){j=2;}
+          else if(c[3]=='O' && c[4]==' ' && c[5]=='O'){j=5;}
+          else if(c[6]=='O' && c[7]==' ' && c[8]=='O'){j=8;}
+          else if(c[0]==' ' && c[1]=='O' && c[2]=='O'){j=1;}
+          else if(c[3]==' ' && c[4]=='O' && c[5]=='O'){j=4;}
+          else if(c[6]==' ' && c[7]=='O' && c[8]=='O'){j=7;}
+          else if(c[0]=='O' && c[3]=='O' && c[6]==' '){j=7;}
+          else if(c[1]=='O' && c[4]=='O' && c[7]==' '){j=8;}
+          else if(c[2]=='O' && c[5]=='O' && c[8]==' '){j=9;}
+          else if(c[0]=='O' && c[3]==' ' && c[6]=='O'){j=4;}
+          else if(c[1]=='O' && c[4]==' ' && c[7]=='O'){j=5;}
+          else if(c[2]=='O' && c[5]==' ' && c[8]=='O'){j=6;}
+          else if(c[0]==' ' && c[3]=='O' && c[6]=='O'){j=1;}
+          else if(c[1]==' ' && c[4]=='O' && c[7]=='O'){j=2;}
+          else if(c[2]==' ' && c[5]=='O' && c[8]=='O'){j=3;}
+          else if(c[0]=='O' && c[4]=='O' && c[8]==' '){j=9;}
+          else if(c[0]=='O' && c[4]==' ' && c[8]=='O'){j=5;}
+          else if(c[0]==' ' && c[4]=='O' && c[8]=='O'){j=1;}
+          else if(c[2]=='O' && c[4]=='O' && c[6]==' '){j=7;}
+          else if(c[2]=='O' && c[4]==' ' && c[6]=='O'){j=5;}
+
+          else if(c[0]=='X' && c[1]=='X' && c[2]==' '){j=3;}
+          else if(c[3]=='X' && c[4]=='X' && c[5]==' '){j=6;}
+          else if(c[6]=='X' && c[7]=='X' && c[8]==' '){j=9;}
+          else if(c[0]=='X' && c[1]==' ' && c[2]=='X'){j=2;}
+          else if(c[3]=='X' && c[4]==' ' && c[5]=='X'){j=5;}
+          else if(c[6]=='X' && c[7]==' ' && c[8]=='X'){j=8;}
+          else if(c[0]==' ' && c[1]=='X' && c[2]=='X'){j=1;}
+          else if(c[3]==' ' && c[4]=='X' && c[5]=='X'){j=4;}
+          else if(c[6]==' ' && c[7]=='X' && c[8]=='X'){j=7;}
+          else if(c[0]=='X' && c[3]=='X' && c[6]==' '){j=7;}
+          else if(c[1]=='X' && c[4]=='X' && c[7]==' '){j=8;}
+          else if(c[2]=='X' && c[5]=='X' && c[8]==' '){j=9;}
+          else if(c[0]=='X' && c[3]==' ' && c[6]=='X'){j=4;}
+          else if(c[1]=='X' && c[4]==' ' && c[7]=='X'){j=5;}
+          else if(c[2]=='X' && c[5]==' ' && c[8]=='X'){j=6;}
+          else if(c[0]==' ' && c[3]=='X' && c[6]=='X'){j=1;}
+          else if(c[1]==' ' && c[4]=='X' && c[7]=='X'){j=2;}
+          else if(c[2]==' ' && c[5]=='X' && c[8]=='X'){j=3;}
+          else if(c[0]=='X' && c[4]=='X' && c[8]==' '){j=9;}
+          else if(c[0]=='X' && c[4]==' ' && c[8]=='X'){j=5;}
+          else if(c[0]==' ' && c[4]=='X' && c[8]=='X'){j=1;}
+          else if(c[2]=='X' && c[4]=='X' && c[6]==' '){j=7;}
+          else if(c[2]=='X' && c[4]==' ' && c[6]=='X'){j=5;}
+          else if(c[2]==' ' && c[4]=='X' && c[6]=='X'){j=3;}
+           else{
+             do{
+               srand((unsigned)time(NULL));
+               j=1+rand()%9;
+            }while(c[j-1]!=' ');
+          }
+        }
+      }
+     if(j<1 || j>9){
+        j=0;
+    }else{
+        if(c[j-1]!=' ') {
+          j=0;
+    }else{
+         if(v%2==0){
+      c[j-1]='X';
+    }else{
+      c[j-1]='O';
+      }
+      cj++;
+      v++;
+     }
+    }
+      if(c[0]=='X' && c[1]=='X' && c[2]=='X'){cj=11;}
+      if(c[3]=='X' && c[4]=='X' && c[5]=='X'){cj=11;}
+      if(c[6]=='X' && c[7]=='X' && c[8]=='X'){cj=11;}
+      if(c[0]=='X' && c[3]=='X' && c[6]=='X'){cj=11;}
+      if(c[1]=='X' && c[4]=='X' && c[7]=='X'){cj=11;}
+      if(c[2]=='X' && c[5]=='X' && c[8]=='X'){cj=11;}
+      if(c[0]=='X' && c[4]=='X' && c[8]=='X'){cj=11;}
+      if(c[2]=='X' && c[4]=='X' && c[6]=='X'){cj=11;}
+
+      if(c[0]=='O' && c[1]=='O' && c[2]=='O'){cj=12;}
+      if(c[3]=='O' && c[4]=='O' && c[5]=='O'){cj=12;}
+      if(c[6]=='O' && c[7]=='O' && c[8]=='O'){cj=12;}
+      if(c[0]=='O' && c[3]=='O' && c[6]=='O'){cj=12;}
+      if(c[1]=='O' && c[4]=='O' && c[7]=='O'){cj=12;}
+      if(c[2]=='O' && c[5]=='O' && c[8]=='O'){cj=12;}
+      if(c[0]=='O' && c[4]=='O' && c[8]=='O'){cj=12;}
+      if(c[2]=='O' && c[4]=='O' && c[6]=='O'){cj=12;}
+    }while(cj<=9);
+   t(c);
+   if(cj==10){
+      printf("\n\"jogo empatado\"\n");
+      e++;
+  }if(cj==11){
+      printf("\n\"o vencedor(a) foi o %s\"\n",nome1);
+      j1++;
+      
+  }if(cj==12){
+     if(op==1){
+      printf("\n\"o vencedor(a) foi o %s\"\n",nome2);
+      printf("digite 1 para ver a pontuacao\n");
+      scanf("%i",&j);
+      j2++;
+     }
+    if(op==2){
+       printf("\n\"o vencedor foi o computador\"\n");
+      printf("digite 1 para ver a pontuacao\n");
+       scanf("%i",&j);
+       j2++;
+    }
+  }   
+
+    printf("empates: %i\n",e);
+   printf("vitorias do jogador %s: %i\n",nome1,j1);
+    if(op==1){
+     printf("vitorias do jogador %s: %i\n",nome2,j2);
+      printf("digita 1\n");
+       scanf("%i",&j);
+    }
+    if(op==2){
+    printf("vitorias do computador: %i\n",j2);
+    printf("digita 1\n");
+     scanf("%i",&j);
+    }
+    printf("deseja jogar novamente?[S-N]\n");
+     scanf("%s",&resultado);
+
+   }while(resultado=='s');
+  return 0;
+}

@@ -1,0 +1,43 @@
+#include <stdio.h> 
+#include <stdlib.h>
+#include <locale.h>
+#include <string.h>
+
+int main(void){
+  
+   setlocale(LC_ALL,"portuguese");
+
+   int n,a;
+   float NA[4][4];
+   float MA[4];
+   char nome [10000];
+
+   printf("\n=========================aluno===============================\n");
+   printf("insira o nome do aluno:\n");
+   scanf("%s",nome);
+   printf("insira a nota bimestral do %s :\n",nome); 
+  
+    for(a=0;a<4;++a) {
+     for(int n=0;n<4;++n) {
+       scanf("%f",&NA[a][n]);
+       MA[a]+=NA[a][n];
+      } 
+        MA[a]/=4;
+        if(a<3){
+       printf("insira o nome do aluno:\n");
+       scanf("%s",nome);
+       printf("insira a nota bimestral do %s :\n",nome); 
+      }
+    }
+      printf("===============================MEDIA===================================");
+        for(a=0;a<4;++a){
+        printf("a media do aluno %s e %.2f \n",nome,MA[a]); 
+        if (MA[a]>=60){
+        printf("o aluno %s foi APROVADO\n",nome);
+        }else{
+        printf("o aluno %s foi REPROVADO\n",nome);
+        }  
+      } 
+    return 0;
+  } 
+  

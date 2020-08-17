@@ -1,0 +1,64 @@
+#include <stdio.h> 
+#include <stdlib.h>
+#include <locale.h>
+#include <string.h>
+#define SIZE 200
+
+void aluno();
+void media();
+
+char nome[SIZE][30];
+int op;
+int n,a;
+float NA[4][4];
+float MA[4];
+
+
+int main(void){
+  
+   setlocale(LC_ALL,"portuguese");
+
+  printf("\n=========================aluno===============================\n");
+   if(a<1){
+   aluno();
+   }
+    
+       media();
+  } 
+  
+    void aluno(){
+   static int linha;
+   do{
+   printf("insira o nome do aluno:\n");
+   scanf("%s",nome[linha]); 
+   printf("digite 2 para continuar \n");
+   scanf("%d",&op);
+   printf("insira a nota bimestral do %s :\n",nome[linha]);
+   linha++;
+   }while(op==1);
+    };
+   void media(){
+     static int linha;
+    for(a=0;a<4;++a) {
+     for(int n=0;n<4;++n) {
+       scanf("%f",&NA[a][n]);
+       MA[a]+=NA[a][n];
+      } 
+        MA[a]/=4;
+        if(a<3){
+        aluno();
+        }
+    }
+     printf("\n===============================MEDIA===================================\n");
+      for(a=0;a<4;++a){
+        printf("a media do aluno %s e %.2f \n",nome[linha],MA[a]); 
+        if (MA[a]>=60){
+
+        printf("o aluno %s foi APROVADO\n",nome[linha]);
+        }else{
+        printf("o aluno %s foi REPROVADO\n",nome[linha]);
+        }  
+      } 
+   };
+  
+  
