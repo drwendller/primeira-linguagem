@@ -33,7 +33,7 @@ int main(){
    }while(op<1 || op>2);
 
     printf("digite o nome do(a) jogador(a) 1:\n");
-    scanf("%s",nome1);
+    scanf("%s",nome1) ;
     
     if(op==1){
     printf("digite o nome do(a) jogador(a) 2:\n");
